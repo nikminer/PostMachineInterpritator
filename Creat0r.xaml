@@ -1,0 +1,19 @@
+﻿<Window x:Class="Post_Machine_Intepretator.Creat0r"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Post_Machine_Intepretator"
+        mc:Ignorable="d"
+        Title="Создание задачи" Height="302.36" Width="651.464" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <ScrollViewer BorderThickness="50" HorizontalAlignment="Left" Height="190" Margin="34,59,0,0" VerticalAlignment="Top" Width="596" HorizontalScrollBarVisibility="Visible" BorderBrush="Black" Background="#FFF7F4F4" VerticalScrollBarVisibility="Disabled">
+            <Canvas x:Name="canvas" Background="White" HorizontalAlignment="Center" Height="160" Loaded="canvas_Loaded" Width="264" MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseRightButtonDown="canvas_MouseRightButtonDown" Cursor="Hand"/>
+        </ScrollViewer>
+        <Label Content="Размер отрезка:"  HorizontalAlignment="Left" Margin="27,18,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.469,0.385"/>
+        <Slider HorizontalAlignment="Left" Margin="156,18,0,0" VerticalAlignment="Top" Width="367" Minimum="5" Maximum="50" SmallChange="1" ValueChanged="Slider_ValueChanged" TickPlacement="Both" Cursor="ScrollWE"/>
+        <Label x:Name="ArrLen" Content="5
+               " HorizontalAlignment="Left" Margin="127,19,0,0" VerticalAlignment="Top" Width="24"/>
+        <Button Content="Создать" HorizontalAlignment="Left" Margin="552,22,0,0" VerticalAlignment="Top" Width="75" Background="White" Cursor="Hand" Click="Button_Click"/>
+    </Grid>
+</Window>
