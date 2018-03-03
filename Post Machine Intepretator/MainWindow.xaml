@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Post_Machine_Intepretator"
         mc:Ignorable="d"
-        Title="Post Machine Interpritator" Height="768" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Post Machine Interpritator" Height="768" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
     <Grid Margin="0,0,2,-1">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -42,6 +42,16 @@
         <Button x:Name="start" HorizontalAlignment="Left" Margin="49,8,0,0" VerticalAlignment="Top" Width="29" Height="30" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" Click="start_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="64596.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="github" Margin="0,2,12,0" VerticalAlignment="Top" Height="50" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" HorizontalAlignment="Right" Width="50" Click="github_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="github.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="help" Margin="0,11,68,0" VerticalAlignment="Top" Height="34" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" Click="start_Copy_Click" HorizontalAlignment="Right" Width="34" >
+            <Button.Background>
+                <ImageBrush ImageSource="no-translate-detected_318-70303.jpg"/>
             </Button.Background>
         </Button>
 
