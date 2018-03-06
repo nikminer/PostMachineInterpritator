@@ -4,7 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Windows;
 using Post_Machine_Interpritator.Classes;
-
+using Microsoft.Win32;
 namespace Post_Machine_Intepretator
 {
     /// <summary>
@@ -13,11 +13,13 @@ namespace Post_Machine_Intepretator
     public partial class MainWindow : Window
     {
         Creat0r creator;
+        RegistryKey soft;
         public MainWindow()
         {
             InitializeComponent();
             
         }
+
         //получение
         int len=5; //длина отрезка (нужна для отрисовки)
         int karretpos=0; //позиция корретки
@@ -190,6 +192,11 @@ namespace Post_Machine_Intepretator
 
         private void start_Click(object sender, RoutedEventArgs e)
         {
+
+            RegistryKey soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true); ;
+            soft.SetValue("emergencySave", input.Text);
+            soft.Close();
+
             tempcar = karretpos;
             templistcells=new Dictionary<int, int>();
             foreach (KeyValuePair<int, int> i in listcells) templistcells.Add(i.Key,i.Value);
@@ -199,8 +206,11 @@ namespace Post_Machine_Intepretator
             foreach (string i in s)
             {
                 try {
-                    string[] temp = i.Split(':');
-                    inputcode.Add(int.Parse(temp[0]), temp[1]);
+                    if (i != "\r")//отбрасываем пустые строки
+                    {
+                        string[] temp = i.Split(':');
+                        inputcode.Add(int.Parse(temp[0]), temp[1]);
+                    }
                 }
                 catch (FormatException)
                 {
@@ -219,6 +229,13 @@ namespace Post_Machine_Intepretator
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            RegistryKey soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
+            try {
+                soft.DeleteValue("emergencySave");
+            }
+            catch { }
+            
+            soft.Close();
             //закрываем приложение при закрытие главной формы
             Environment.Exit(0);
         }
@@ -226,7 +243,9 @@ namespace Post_Machine_Intepretator
         private void start_Copy_Click(object sender, RoutedEventArgs e)
         {
             //создаём окно справки
-            try { helper.Close(); } catch { }
+            try {
+                helper.Close();
+            } catch { }
             
             helper = new Help();
             helper.Show();
@@ -236,6 +255,19 @@ namespace Post_Machine_Intepretator
         {
             //при нажатии на кнопку пользователю открывается репозиторий программы в браузере по умолчанию
             Process.Start("https://github.com/nikminer/PostMachineInterpritator");
+        }
+
+        private void input_Loaded(object sender, RoutedEventArgs e)
+        {
+            soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
+            try
+            {
+                input.Text = soft.GetValue("emergencySave").ToString();
+            }
+            catch
+            {
+                Registry.CurrentUser.OpenSubKey("SOFTWARE", true).CreateSubKey("PostMachineInterpritator", true).Close(); ;
+            }
         }
     }
 }

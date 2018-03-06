@@ -21,7 +21,9 @@
         <Border BorderBrush="Black" BorderThickness="2" Margin="9,54,12,16" Background="White">
             <Grid Margin="0,-1,0,1">
                 <GroupBox Grid.Row="0" Header="Код" FontFamily="Roboto" FontSize="16" FontWeight="Bold" BorderBrush="#FFFDFEFF" >
-                    <TextBox Margin="8,13,3,16" TextWrapping="WrapWithOverflow" AcceptsReturn="True"  Name="input" FontSize="22"/>
+                    <TextBox Margin="8,13,3,16" TextWrapping="WrapWithOverflow" AcceptsReturn="True"  Name="input" FontSize="22" Loaded="input_Loaded">
+                       
+                    </TextBox>
                 </GroupBox>
                 <GridSplitter Grid.Row="1"  Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="Black" FontSize="16" FontWeight="Bold" FontFamily="Roboto" />
                 <GroupBox Grid.Row="2"  Header="Результат" FontFamily="Roboto" FontSize="16" FontWeight="Bold" BorderBrush="White"   >
