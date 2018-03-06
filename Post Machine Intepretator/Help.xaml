@@ -5,15 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Post_Machine_Intepretator"
         mc:Ignorable="d"
-        Title="Информация о синтаксисе" Height="500" Width="511.082" ResizeMode="NoResize">
+        Title="Информация о синтаксисе" Height="552" Width="559.082" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="14*"/>
-            <ColumnDefinition Width="469*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="466*"/>
+            <ColumnDefinition Width="59*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Синтаксис написания программ для машины поста:" HorizontalAlignment="Left" Margin="0,9,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="[Номер строки]:команда [номер следующей строки]" HorizontalAlignment="Left" Margin="0,69,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Синтаксис написания программ для машины поста:" HorizontalAlignment="Left" Margin="0,9,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="419"/>
+        <Label Content="[Номер строки]:команда [номер следующей строки] [комментарий]" HorizontalAlignment="Left" Margin="0,69,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5" Width="387" Height="26">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -23,10 +24,10 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Обычная команда:" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Условие:" HorizontalAlignment="Left" Margin="1,99,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="Команды:" HorizontalAlignment="Left" Margin="3,164,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Label Content="[Номер строки]:? [номер следующей строки естрокие если верно]" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Обычная команда:" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="148"/>
+        <Label Content="Условие:" HorizontalAlignment="Left" Margin="1,99,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="74"/>
+        <Label Content="Команды:" HorizontalAlignment="Left" Margin="3,164,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="81"/>
+        <Label Content="[Номер строки]:? [номер следующей строки естрокие если верно] [комментарий]" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5" Width="461" Height="26">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -36,11 +37,22 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="V - Поставить метку" Grid.Column="2" HorizontalAlignment="Left" Margin="1,195,0,0" VerticalAlignment="Top"/>
-        <Label Content="X - убрать метку" Grid.Column="2" HorizontalAlignment="Left" Margin="1,224,0,0" VerticalAlignment="Top"/>
-        <Label Content="-&gt; - сдвинуть каретку вправо" Grid.Column="2" HorizontalAlignment="Left" Margin="1,250,0,0" VerticalAlignment="Top"/>
-        <Label Content="&lt;- - сдвинуть каретку влево" Grid.Column="2" HorizontalAlignment="Left" Margin="1,275,0,0" VerticalAlignment="Top"/>
-        <Label Content="? - проверить есть ли метка в ячейке (см. п. условие)" Grid.Column="2" HorizontalAlignment="Left" Margin="1,302,0,0" VerticalAlignment="Top"/>
-        <Label Content="ВНИМАНИЕ!!!&#xD;&#xA;Синтаксис очень чувствителен к пробелам делайте всё &#xD;&#xA;строго по синтаксису! Старайтесь не делать бесконечных&#xD;&#xA;циклов, иначе программа просто вылетит." Grid.Column="2" HorizontalAlignment="Left" Margin="1,341,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label Content="V - Поставить метку" Grid.Column="2" HorizontalAlignment="Left" Margin="1,195,0,0" VerticalAlignment="Top" Height="26" Width="120"/>
+        <Label Content="X - убрать метку" Grid.Column="2" HorizontalAlignment="Left" Margin="1,224,0,0" VerticalAlignment="Top" Height="26" Width="100"/>
+        <Label Content="-&gt; - сдвинуть каретку вправо" Grid.Column="2" HorizontalAlignment="Left" Margin="1,250,0,0" VerticalAlignment="Top" Height="26" Width="172"/>
+        <Label Content="&lt;- - сдвинуть каретку влево" Grid.Column="2" HorizontalAlignment="Left" Margin="1,275,0,0" VerticalAlignment="Top" Height="26" Width="165"/>
+        <Label Content="? - проверить есть ли метка в ячейке (см. п. условие)" Grid.Column="2" HorizontalAlignment="Left" Margin="1,302,0,0" VerticalAlignment="Top" Height="26" Width="302"/>
+        <Label Content="ВНИМАНИЕ!!!&#xA;Старайтесь не делать бесконечных&#xA;циклов, иначе программа просто вылетит." Grid.Column="2" HorizontalAlignment="Left" Margin="1,409,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Height="95" Width="460"/>
+        <Label Content="Строки без команд:" HorizontalAlignment="Left" Margin="1,331,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Height="31" Width="168" Grid.ColumnSpan="2"/>
+        <Label Content="[Номер строки]:[Номер следующей строки] [комментарий]" HorizontalAlignment="Left" Margin="8,367,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5" Width="461" Height="26" Grid.ColumnSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-15.785"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="3.675"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>
