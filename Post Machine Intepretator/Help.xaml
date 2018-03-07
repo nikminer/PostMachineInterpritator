@@ -27,7 +27,7 @@
         <Label Content="Обычная команда:" HorizontalAlignment="Left" Margin="0,38,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="148"/>
         <Label Content="Условие:" HorizontalAlignment="Left" Margin="1,99,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="74"/>
         <Label Content="Команды:" HorizontalAlignment="Left" Margin="3,164,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1" Grid.ColumnSpan="2" Height="31" Width="81"/>
-        <Label Content="[Номер строки]:? [строка если содержит метку];[строка если не содержит метку] [комментарий]" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5" Width="454" Height="27">
+        <Label Content="[Номер строки]:? [строка если не содержит метку];[строка если содержит метку] [комментарий]" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top" Grid.Column="2" Background="#FFF3EFEF" RenderTransformOrigin="0.5,0.5" Width="454" Height="27">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

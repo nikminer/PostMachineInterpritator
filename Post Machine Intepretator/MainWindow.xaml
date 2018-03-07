@@ -6,7 +6,11 @@
         xmlns:local="clr-namespace:Post_Machine_Intepretator"
         mc:Ignorable="d"
         Title="Post Machine Interpritator" Height="768" Width="1024" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Closed="Window_Closed">
-    <Grid Margin="0,0,2,-1">
+    <Grid Margin="0,0,0,-1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="167*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="1"/>
@@ -18,16 +22,14 @@
                 <ImageBrush ImageSource="black-white-metro-add-file-icon.png"/>
             </Button.Background>
         </Button>
-        <Border BorderBrush="Black" BorderThickness="2" Margin="9,54,12,16" Background="White">
+        <Border BorderBrush="Black" BorderThickness="2" Margin="9,54,0,42" Background="White">
             <Grid Margin="0,-1,0,1">
                 <GroupBox Grid.Row="0" Header="Код" FontFamily="Roboto" FontSize="16" FontWeight="Bold" BorderBrush="#FFFDFEFF" >
-                    <TextBox Margin="8,13,3,16" TextWrapping="WrapWithOverflow" AcceptsReturn="True"  Name="input" FontSize="22" Loaded="input_Loaded">
-                       
-                    </TextBox>
+                    <TextBox Margin="8,13,3,16" TextWrapping="WrapWithOverflow" AcceptsReturn="True"  Name="input" FontSize="22" TextChanged="input_TextChanged"/>
                 </GroupBox>
                 <GridSplitter Grid.Row="1"  Height="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="Black" FontSize="16" FontWeight="Bold" FontFamily="Roboto" />
                 <GroupBox Grid.Row="2"  Header="Результат" FontFamily="Roboto" FontSize="16" FontWeight="Bold" BorderBrush="White"   >
-                    <ScrollViewer Background="#FFD1D0D0" Height="auto" Margin="6,12,13,0"  Width="auto" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" >
+                    <ScrollViewer Background="#FFD1D0D0" Height="auto" Margin="6,12,13,3"  Width="auto" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" >
                         <Canvas Name="canvas" Height="160" Width="264" Background="White"/>
                     </ScrollViewer>
                 </GroupBox>
@@ -46,16 +48,17 @@
                 <ImageBrush ImageSource="64596.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="github" Margin="0,2,12,0" VerticalAlignment="Top" Height="50" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" HorizontalAlignment="Right" Width="50" Click="github_Click" >
+        <Button x:Name="github" Margin="0,2,0,0" VerticalAlignment="Top" Height="50" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" HorizontalAlignment="Right" Width="50" Click="github_Click" >
             <Button.Background>
                 <ImageBrush ImageSource="github.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="help" Margin="0,11,68,0" VerticalAlignment="Top" Height="34" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" Click="start_Copy_Click" HorizontalAlignment="Right" Width="34" >
+        <Button x:Name="help" Margin="0,11,56,0" VerticalAlignment="Top" Height="34" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" Click="start_Copy_Click" HorizontalAlignment="Right" Width="34" >
             <Button.Background>
                 <ImageBrush ImageSource="no-translate-detected_318-70303.jpg"/>
             </Button.Background>
         </Button>
+        <Image Name="Stauscode" Margin="0,0,2,5" HorizontalAlignment="Right" Width="32" Height="32" VerticalAlignment="Bottom" Source="icons8-checkmark-50.png" Visibility="Hidden"/>
 
 
     </Grid>

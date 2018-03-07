@@ -17,7 +17,16 @@ namespace Post_Machine_Intepretator
         public MainWindow()
         {
             InitializeComponent();
-            
+            soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
+            try
+            {
+                input.Text = soft.GetValue("emergencySave").ToString();
+            }
+            catch
+            {
+                Registry.CurrentUser.OpenSubKey("SOFTWARE", true).CreateSubKey("PostMachineInterpritator", true);
+                Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true).CreateSubKey("Arr", true).Close(); ;
+            }
         }
 
         //получение
@@ -33,8 +42,12 @@ namespace Post_Machine_Intepretator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            RegistryKey soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
+            len=(int)soft.GetValue("len",5);
+            karretpos = (int)soft.GetValue("karretpos", 0);
+            for (int i = 0; i < len; i++)
+                listcells.Add(i,int.Parse(soft.OpenSubKey("Arr",true).GetValue(i.ToString(),0).ToString()));
             //Отрисовка в интерпритаторе отрезка памяти
-            for (int i = 0; i < len; listcells.Add(i++, 0)) ;
             canvas.Width = 50 * len + 30;
             Graphics.drawAll(canvas, listcells, karretpos, len);
         }
@@ -66,71 +79,69 @@ namespace Post_Machine_Intepretator
             {
                     if (!command.Contains('?'))//условие ли это
                     {
-                        List<string> temp = deleteEmpty(command.Split(' ').ToList<string>());//парсим комманды и указатели т.е всё что идёт после :
-                        if (temp[1] == "PointeExcept") return; //если вдруг нету указателя, то выполнение комманды завершить
-                        if (temp[0].ToLower() == "v")//рисует ли это метку
+                        var args = deleteEmpty(command.Split(' ').ToList<string>()).Split(' ').ToList<string>();//парсим комманды и указатели т.е всё что идёт после :
+                        try
+                        {
+                            //если вдруг отстутсвует второй аргумент комманды, то есть два варианта: либо это строка без команды, либо пользователь не поставил указатель на следующую строку
+                            int temp;
+                            if (int.TryParse(args[0], out temp)) args[1]=temp.ToString();
+                            
+                            else
+                               int.Parse(args[1]);  
+                        }
+                        catch(Exception)
+                        {
+                            MessageBox.Show("Отсутсвует указатель на следующую строку в строке " + curline + "!\n Добавьте его и попробуйте ещё раз.", "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
+                        if (args[0].ToLower() == "v")//рисует ли это метку
                         {
                             templistcells[tempcar] = 1;
-                            nextCommand(int.Parse(temp[1]));
+                            nextCommand(int.Parse(args[1]));
                             
                         }
-                        if (temp[0].ToLower() == "x")//затирает ли это метку
+                        if (args[0].ToLower() == "x")//затирает ли это метку
                         {
                             templistcells[tempcar] = 0;
-                            nextCommand(int.Parse(temp[1]));
+                            nextCommand(int.Parse(args[1]));
                         }
-                        if (temp[0] == "->")//сдвиг вправо
+                        if (args[0] == "->")//сдвиг вправо
                         {
                             tempcar++;
                             if (tempcar > len - 1) tempcar = len - 1;
-                            nextCommand(int.Parse(temp[1]));
+                            nextCommand(int.Parse(args[1]));
                         }
-                        if (temp[0] == "<-")//сдвиг влево
+                        if (args[0] == "<-")//сдвиг влево
                         {
                             tempcar--;
                             if (tempcar < 0) tempcar = 0;
-                            nextCommand(int.Parse(temp[1]));
+                            nextCommand(int.Parse(args[1]));
                         }
                         int temper;
-                        if (int.TryParse(temp[0],out temper)) nextCommand(temper); //забираем указатель из пустой строки
+                        if (int.TryParse(args[0],out temper)) nextCommand(temper); //забираем указатель из пустой строки
                     }
                     else
                     {
                         try {
-                            List<string> temp = deleteEmpty(command.Split(' ').ToList<string>()); 
-                            //приводим второй и третий агрумент к виду [arg2]:[arg3]
-                            temp.Remove("?");
-                            for (int i = 0; i < temp.Count; i++)
-                                if (temp[i].Contains(";"))
-                                {
-                                    if (temp[i].LastIndexOf(';') == temp[i].Length - 1)
-                                    {
-                                        temp[i] += temp[i + 1];
-                                        temp.RemoveAt(i + 1);
-                                    }
-                                    if (temp[i].IndexOf(';') == 0)
-                                    {
-                                        temp[i-1] += temp[i];
-                                        temp.RemoveAt(i);
-                                    }
-                                    break;
-                                }
-                            if(temp[0]== "PointeExcept") return;
+                            var args = deleteEmpty(command.Split(' ').ToList<string>()).Substring(1).Split(';').ToList();
                             try
                             {    
-                                if (templistcells[tempcar] == 1)
-                                    nextCommand(int.Parse(temp[0].Split(';')[0]));
+                                if (templistcells[tempcar] != 1)
+                                    nextCommand(int.Parse(args[0]));
                                 else
-                                    nextCommand(int.Parse(temp[0].Split(';')[1]));
+                                    nextCommand(int.Parse(args[1]));
                             }
                             catch (FormatException)
                             {
-                                MessageBox.Show("В условие \"" + command + "\" в строка "+curline+" отсутсвуют необходимы аргументы!" + " Добавьте их и попробуйте ещё раз.", "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
+                                string text = "Условие \"" + command.Remove(command.Length - 1) + "\" строка " + curline + ",\n не содержит необходимые аргументы!\n Добавьте их и попробуйте ещё раз.";
+                                MessageBox.Show(text, "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
                                 return;
                             }
                             catch(IndexOutOfRangeException)
                             {
-                                MessageBox.Show("В условие \"" + command + "\" в строка " + curline + " отсутсвуют необходимы аргументы!" + " Добавьте их и попробуйте ещё раз.", "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
+                                string text = "Условие \"" + command.Remove(command.Length - 1) + "\" строка " + curline + ",\n не содержит необходимые аргументы!\n Добавьте их и попробуйте ещё раз.";
+                                MessageBox.Show(text, "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
                                 return;
                             }
                         }
@@ -147,6 +158,7 @@ namespace Post_Machine_Intepretator
             }
             //отрисовка изменений
             Graphics.drawAll(canvas, templistcells, tempcar, len);
+            Stauscode.Visibility = Visibility;
         }
 
         void nextCommand(int line)
@@ -164,37 +176,23 @@ namespace Post_Machine_Intepretator
             
         }
         int curline;
-        List<string> deleteEmpty(List<string> temp)
-        {
-            //удаляем всю не нужную пустоту
-            while (temp[0] == "")
-            {
-                temp.RemoveAt(0);
-            }
-            try
-            {
-                while (temp[1] == "")
-                {
-                    temp.RemoveAt(1);
-                }
-            }catch (ArgumentOutOfRangeException)
-            {
-                //если вдруг отстутсвует второй аргумент комманды, то есть два варианта: либо это строка без команды, либо пользователь не поставил указатель на следующую строку
-                if (int.TryParse(temp[0], out int temper)) temp.Add("");
-                else
-                {
-                    MessageBox.Show("Отсутсвует указатель на следующую строку в строке "+curline+"!\n Добавьте его и попробуйте ещё раз.", "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
-                    temp.Insert(1,"PointeExcept");
-                }
-            }
-            return temp;
-        }
 
+        string deleteEmpty(List<string> temp)
+        {
+            string ConvToString = string.Empty;
+            foreach (var i in temp)
+                if(i!="")ConvToString += i+" ";
+            return ConvToString;
+        }
         private void start_Click(object sender, RoutedEventArgs e)
         {
-
-            RegistryKey soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true); ;
+            RegistryKey soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
             soft.SetValue("emergencySave", input.Text);
+            soft.CreateSubKey("Arr");
+            foreach (KeyValuePair<int, int> i in listcells)
+                soft.OpenSubKey("Arr",true).SetValue(i.Key.ToString(),i.Value.ToString()); ;
+            soft.SetValue("len",len);
+            soft.SetValue("karretpos",karretpos);
             soft.Close();
 
             tempcar = karretpos;
@@ -226,15 +224,19 @@ namespace Post_Machine_Intepretator
             }
             nextCommand(1);
         }
-
         private void Window_Closed(object sender, EventArgs e)
         {
+            //удаление экстренного сохранения
             RegistryKey soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
             try {
+                
+                soft.DeleteValue("len");
+                soft.DeleteValue("karretpos");
+                for (int i = 0; i < len; i++)
+                    soft.DeleteSubKey("Arr");
                 soft.DeleteValue("emergencySave");
             }
             catch { }
-            
             soft.Close();
             //закрываем приложение при закрытие главной формы
             Environment.Exit(0);
@@ -257,17 +259,9 @@ namespace Post_Machine_Intepretator
             Process.Start("https://github.com/nikminer/PostMachineInterpritator");
         }
 
-        private void input_Loaded(object sender, RoutedEventArgs e)
+        private void input_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            soft = Registry.CurrentUser.OpenSubKey("SOFTWARE", true).OpenSubKey("PostMachineInterpritator", true);
-            try
-            {
-                input.Text = soft.GetValue("emergencySave").ToString();
-            }
-            catch
-            {
-                Registry.CurrentUser.OpenSubKey("SOFTWARE", true).CreateSubKey("PostMachineInterpritator", true).Close(); ;
-            }
+            Stauscode.Visibility = Visibility.Hidden;
         }
     }
 }
