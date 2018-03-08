@@ -4,11 +4,11 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 
-namespace Post_Machine_Interpritator.Classes
+namespace Post_Machine_Intepretator.Classes
 {
     public class Graphics
     {
-
+        //Этот модуль отвечает за отрисовку отрезка на поверхности Canvas
         static void drawTable(Canvas canvas, int len)
         {
             Line lineU = new Line()
@@ -97,10 +97,12 @@ namespace Post_Machine_Interpritator.Classes
         }
         public static void drawAll(Canvas canvas, Dictionary<int,int> listcells,int karretpos, int len)
         {
+            canvas.Width = 50 * len + 30;
             canvas.Children.RemoveRange(0, canvas.Children.Count);//удалить всё
             drawTable(canvas, len);
             drawMark(canvas,listcells);
             drawKarret(canvas, karretpos);
+            
         }
     }
 }

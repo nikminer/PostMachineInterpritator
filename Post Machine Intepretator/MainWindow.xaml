@@ -53,7 +53,7 @@
                 <ImageBrush ImageSource="github.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="help" Margin="0,11,56,0" VerticalAlignment="Top" Height="34" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" Click="start_Copy_Click" HorizontalAlignment="Right" Width="34" >
+        <Button x:Name="HelpBtn" Margin="0,11,56,0" VerticalAlignment="Top" Height="34" Cursor="Hand" BorderBrush="{x:Null}" Foreground="{x:Null}" OpacityMask="White" Click="help" HorizontalAlignment="Right" Width="34" >
             <Button.Background>
                 <ImageBrush ImageSource="no-translate-detected_318-70303.jpg"/>
             </Button.Background>

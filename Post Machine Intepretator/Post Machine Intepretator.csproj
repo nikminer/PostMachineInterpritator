@@ -72,6 +72,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\CommandProcessor.cs" />
+    <Compile Include="Classes\EmergencySave.cs" />
     <Compile Include="Classes\Graphics.cs" />
     <Compile Include="Creat0r.xaml.cs">
       <DependentUpon>Creat0r.xaml</DependentUpon>

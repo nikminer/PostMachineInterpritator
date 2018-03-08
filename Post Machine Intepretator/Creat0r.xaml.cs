@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using Post_Machine_Interpritator.Classes;
+using Post_Machine_Intepretator.Classes;
 
 namespace Post_Machine_Intepretator
 {
