@@ -16,12 +16,13 @@ namespace Post_Machine_Intepretator.Classes
         public static int len;
         static void process(string command)
         {
+            var args = CommandProcessor.deleteEmpty(command).Split(' ').ToList<string>();//парсим комманды и указатели т.е всё что идёт после :
             //выполнение программы пользователя рекурсивно
-            if (!command.Contains('!'))//проверяем конец ли это программы
+            if (args[0] != "!")//проверяем конец ли это программы
             {
-                if (!command.Contains('?'))//условие ли это
+                if (args[0]!="?")//условие ли это
                 {
-                    var args = CommandProcessor.deleteEmpty(command).Split(' ').ToList<string>();//парсим комманды и указатели т.е всё что идёт после :
+                    
                     try
                     {
                         //если вдруг отстутсвует второй аргумент комманды, то есть два варианта: либо это строка без команды, либо пользователь не поставил указатель на следующую строку
@@ -62,13 +63,13 @@ namespace Post_Machine_Intepretator.Classes
                 }
                 else
                 {
-                    var args = CommandProcessor.deleteEmpty(command).Substring(1).Split(';').ToList();
+                    
                     try
                     {
                         if (listcells[karretpos] != 1)
-                            nextCommand(int.Parse(args[0]));
+                            nextCommand(int.Parse(args[1].Split(';')[0]));
                         else
-                          nextCommand(int.Parse(args[1]));
+                          nextCommand(int.Parse(args[1].Split(';')[1]));
                     }
                     catch (FormatException)
                     {
