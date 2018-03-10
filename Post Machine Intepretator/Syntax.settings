@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Post_Machine_Intepretator" GeneratedClassName="Syntax">
+  <Profiles />
+  <Settings>
+    <Setting Name="AddV" Type="System.String" Scope="User">
+      <Value Profile="(Default)">v</Value>
+    </Setting>
+    <Setting Name="RemV" Type="System.String" Scope="User">
+      <Value Profile="(Default)">x</Value>
+    </Setting>
+    <Setting Name="left" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;-</Value>
+    </Setting>
+    <Setting Name="right" Type="System.String" Scope="User">
+      <Value Profile="(Default)">-&gt;</Value>
+    </Setting>
+    <Setting Name="ifer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">?</Value>
+    </Setting>
+    <Setting Name="ifer_split" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">;</Value>
+    </Setting>
+    <Setting Name="ponter_line_split" Type="System.Char" Scope="User">
+      <Value Profile="(Default)">:</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -20,7 +20,7 @@ namespace Post_Machine_Intepretator.Classes
             //выполнение программы пользователя рекурсивно
             if (args[0] != "!")//проверяем конец ли это программы
             {
-                if (args[0]!="?")//условие ли это
+                if (args[0]!=Syntax.Default.ifer.ToLower())//условие ли это
                 {
                     
                     try
@@ -36,23 +36,23 @@ namespace Post_Machine_Intepretator.Classes
                         MessageBox.Show("Отсутсвует указатель на следующую строку в строке " + curline + "!\n Добавьте его и попробуйте ещё раз.", "Ошибка синтаксиса", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
-                    if (args[0].ToLower() == "v")//рисует ли тут метку
+                    if (args[0].ToLower() == Syntax.Default.AddV.ToLower())//рисует ли тут метку
                     {
                         listcells[karretpos] = 1;
                         nextCommand(int.Parse(args[1]));
                     }
-                    if (args[0].ToLower() == "x")//затирает ли тут метку
+                    if (args[0].ToLower() == Syntax.Default.RemV.ToLower())//затирает ли тут метку
                     {
                         listcells[karretpos] = 0;
                         nextCommand(int.Parse(args[1]));
                     }
-                    if (args[0] == "->")//сдвиг вправо
+                    if (args[0].ToLower() == Syntax.Default.right.ToLower())//сдвиг вправо
                     {
                         karretpos++;
                         if (karretpos > len - 1) karretpos = len - 1;
                         nextCommand(int.Parse(args[1]));
                     }
-                    if (args[0] == "<-")//сдвиг влево
+                    if (args[0].ToLower() == Syntax.Default.left.ToLower())//сдвиг влево
                     {
                         karretpos--;
                         if (karretpos < 0) karretpos = 0;
@@ -67,9 +67,9 @@ namespace Post_Machine_Intepretator.Classes
                     try
                     {
                         if (listcells[karretpos] != 1)
-                            nextCommand(int.Parse(args[1].Split(';')[0]));
+                            nextCommand(int.Parse(args[1].Split(Syntax.Default.ifer_split)[0]));
                         else
-                          nextCommand(int.Parse(args[1].Split(';')[1]));
+                          nextCommand(int.Parse(args[1].Split(Syntax.Default.ifer_split)[1]));
                     }
                     catch (FormatException)
                     {

@@ -1,0 +1,46 @@
+﻿<Window x:Class="Post_Machine_Intepretator.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Post_Machine_Intepretator"
+        mc:Ignorable="d"
+        Title="Settings" Height="545.534" Width="528.97" ResizeMode="NoResize" Background="#FFECE6E6" WindowStartupLocation="CenterScreen" ShowInTaskbar="False" Icon="img_373064.png" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl Margin="10,13,10,0" Height="448" VerticalAlignment="Top" BorderBrush="Black">
+            <TabItem Header="Синтаксис" FontWeight="Bold" FontSize="16" FontFamily="Arial">
+                <Grid Background="White" Margin="0,0,0,5">
+                    <GroupBox Header="Метка" Height="121" Margin="10,40,12,0" VerticalAlignment="Top" BorderBrush="#FF252627">
+                        <Grid>
+                            <Label Content="Добавить:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="AV" Height="23" Margin="103,19,31,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                            <Label Content="Удалить:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="RV" Height="23" Margin="104,50,32,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Сдвиг карретки" Height="121" Margin="10,167,13,0" VerticalAlignment="Top" BorderBrush="#FF252627">
+                        <Grid>
+                            <Label Content="Сдвиг влево:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="L" Height="23" Margin="133,18,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                            <Label Content="Сдвиг вправо:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="R" Height="23" Margin="133,51,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="Данные параметры позволяют изменить сиетаксис интерпритатора." Margin="12,6,13,0" VerticalAlignment="Top" FontSize="14" FontWeight="Normal" Height="33"/>
+                    <GroupBox Header="Условие" Margin="10,299,13,4" BorderBrush="#FF252627">
+                        <Grid Margin="0,0,0,-15">
+                            <Label Content="Указатель:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="Ifer" Height="23" Margin="133,18,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                            <Label Content="Разделитель:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="Point" Height="23" Margin="133,51,288,0" TextWrapping="Wrap" VerticalAlignment="Top" UndoLimit="1"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="Save" Content="Применить" HorizontalAlignment="Left" Margin="390,468,0,7" Width="115" Background="White" FontSize="18" FontWeight="Bold" FontFamily="Arial" Click="Save_Click"/>
+        <Button x:Name="Save_and_exit" Content="ОК" HorizontalAlignment="Left" Margin="271,468,0,7" Width="115" Background="White" FontSize="18" FontWeight="Bold" FontFamily="Arial" Click="Save_and_exit_Click"/>
+        <Button x:Name="reset" Content="По умолчанию" HorizontalAlignment="Left" Margin="125,468,0,7" Width="142" Background="White" FontSize="18" FontWeight="Bold" FontFamily="Arial" Click="reset_Click"/>
+
+    </Grid>
+</Window>

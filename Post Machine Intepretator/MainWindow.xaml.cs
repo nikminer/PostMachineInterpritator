@@ -14,6 +14,7 @@ namespace Post_Machine_Intepretator
     {
         Creat0r creator;
         Help helper;
+        Setting set;
         public MainWindow()
         {
             InitializeComponent();
@@ -60,9 +61,9 @@ namespace Post_Machine_Intepretator
             CommandProcessor.listcells= new Dictionary<int, int>();
             foreach (KeyValuePair<int, int> i in listcells)
                 CommandProcessor.listcells.Add(i.Key,i.Value);
-            CommandProcessor.inputCode(input);
+            
             CommandProcessor.len = len;
-
+            CommandProcessor.inputCode(input);
             //отрисовка изменений
             Graphics.drawAll(canvas, CommandProcessor.listcells, CommandProcessor.karretpos, len);
             Stauscode.Visibility = Visibility;
@@ -92,6 +93,18 @@ namespace Post_Machine_Intepretator
         private void input_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             Stauscode.Visibility = Visibility.Hidden;
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                set.Close();
+            }
+            catch { }
+
+            set = new Setting();
+            set.Show();
         }
     }
 }
