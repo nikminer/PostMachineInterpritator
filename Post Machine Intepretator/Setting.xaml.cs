@@ -101,25 +101,5 @@ namespace Post_Machine_Intepretator
             Ifer.Text = Syntax.Default.ifer;
             Point.Text = Syntax.Default.ifer_split.ToString();
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-        private void Point_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (Point.Text.Length > 1) Point.Text = Point.Text[0].ToString();
-        }
-
-        private void Setting_TextInput(object sender, KeyEventArgs e)
-        {
-            if (e.Key==Key.Space)
-            {
-                e.Handled = true;
-            }
-            
-        }
-=======
->>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
-=======
->>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
     }
 }

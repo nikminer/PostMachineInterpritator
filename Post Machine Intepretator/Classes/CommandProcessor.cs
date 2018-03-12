@@ -20,15 +20,7 @@ namespace Post_Machine_Intepretator.Classes
             //выполнение программы пользователя рекурсивно
             if (args[0] != "!")//проверяем конец ли это программы
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                if (args[0].ToLower() != Syntax.Default.ifer.ToLower())//условие ли это
-=======
                 if (args[0].ToLower()!=Syntax.Default.ifer.ToLower())//условие ли это
->>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
-=======
-                if (args[0].ToLower()!=Syntax.Default.ifer.ToLower())//условие ли это
->>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
                 {
                     
                     try

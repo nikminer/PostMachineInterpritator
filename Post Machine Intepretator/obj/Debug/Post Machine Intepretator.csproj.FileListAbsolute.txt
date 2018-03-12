@@ -1,0 +1,8 @@
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\Creat0r.g.cs
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\Help.g.cs
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\MainWindow.g.cs
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\Setting.g.cs
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\App.g.cs
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\Post Machine Intepretator_MarkupCompile.cache
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\Post Machine Intepretator_MarkupCompile.lref
+C:\Users\nikminer.sys\Desktop\PostMachineInterpritator\Post Machine Intepretator\obj\Debug\Post Machine Intepretator.csprojResolveAssemblyReference.cache
