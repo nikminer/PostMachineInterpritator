@@ -13,14 +13,43 @@
                     <GroupBox Header="Метка" Height="121" Margin="10,40,12,0" VerticalAlignment="Top" BorderBrush="#FF252627">
                         <Grid>
                             <Label Content="Добавить:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <TextBox x:Name="AV" Height="23" Margin="103,19,31,0" TextWrapping="Wrap" Text="TextBox" PreviewKeyDown="Setting_TextInput" VerticalAlignment="Top"/>
+                            <Label Content="Удалить:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="RV" Height="23" Margin="104,50,32,0" TextWrapping="Wrap" Text="TextBox" PreviewKeyDown="Setting_TextInput" VerticalAlignment="Top"/>
+=======
                             <TextBox x:Name="AV" Height="23" Margin="103,19,31,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
                             <Label Content="Удалить:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="RV" Height="23" Margin="104,50,32,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+>>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
+=======
+                            <TextBox x:Name="AV" Height="23" Margin="103,19,31,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+                            <Label Content="Удалить:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="RV" Height="23" Margin="104,50,32,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
+>>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Сдвиг карретки" Height="121" Margin="10,167,13,0" VerticalAlignment="Top" BorderBrush="#FF252627">
                         <Grid>
                             <Label Content="Сдвиг влево:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <TextBox x:Name="L" Height="23" Margin="133,18,33,0" TextWrapping="Wrap" Text="TextBox" PreviewKeyDown="Setting_TextInput" VerticalAlignment="Top"/>
+                            <Label Content="Сдвиг вправо:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="R" Height="23" Margin="133,51,33,0" TextWrapping="Wrap" Text="TextBox" PreviewKeyDown="Setting_TextInput" VerticalAlignment="Top"/>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="Данные параметры позволяют изменить сиетаксис интерпритатора." Margin="12,6,13,0" VerticalAlignment="Top" FontSize="14"  FontWeight="Normal" Height="33"/>
+                    <GroupBox Header="Условие" Margin="10,299,13,4" BorderBrush="#FF252627">
+                        <Grid Margin="0,0,0,-15">
+                            <Label Content="Указатель:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="Ifer" Height="23" Margin="133,18,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" PreviewKeyDown="Setting_TextInput"/>
+                            <Label Content="Разделитель:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="Point" Height="23" Margin="133,51,301,0" TextWrapping="Wrap" VerticalAlignment="Top" UndoLimit="1" TextChanged="Point_TextChanged" PreviewKeyDown="Setting_TextInput"/>
+=======
+=======
+>>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
                             <TextBox x:Name="L" Height="23" Margin="133,18,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
                             <Label Content="Сдвиг вправо:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="R" Height="23" Margin="133,51,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
@@ -33,6 +62,10 @@
                             <TextBox x:Name="Ifer" Height="23" Margin="133,18,33,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top"/>
                             <Label Content="Разделитель:" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="Point" Height="23" Margin="133,51,288,0" TextWrapping="Wrap" VerticalAlignment="Top" UndoLimit="1"/>
+<<<<<<< HEAD
+>>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
+=======
+>>>>>>> c5978a9d458b8092bce132a9430e40087bc3a3bc
                         </Grid>
                     </GroupBox>
                 </Grid>
