@@ -20,7 +20,7 @@ namespace Post_Machine_Intepretator.Classes
             //выполнение программы пользователя рекурсивно
             if (args[0] != "!")//проверяем конец ли это программы
             {
-                if (args[0]!=Syntax.Default.ifer.ToLower())//условие ли это
+                if (args[0].ToLower()!=Syntax.Default.ifer.ToLower())//условие ли это
                 {
                     
                     try
